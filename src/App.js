@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import Message from  "./components/Message";
+import TextBox from  "./components/TextBox";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      messages: [
+        {name: 'Isabella', text: 'hello!', time: '10:50'}, 
+        {name: 'Maciel', text: 'hi!', time: '10:59'}, 
+        {name: 'Isabella', text: 'heyyy!', time: '11:05'}
+      ]
+    }
+  }
+  render() {
+    const message = this.state.messages[0];
+    return (
+      <main>
+        <Message />
+        <Message />
+        <Message />
+        <TextBox />
+      </main>
+    );
+  }
+
 }
 
 export default App;
